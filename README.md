@@ -17,8 +17,8 @@ El proyecto cuenta con dos aplicaciones:
 - **Java 17+** y **JavaFX** (App de escritorio)
 - **Kotlin** y **Android SDK** (App móvil)
 - **IntelliJ IDEA** como IDE
-- **SQLite / MySQL / PostgreSQL** para base de datos
+- **PostgreSQL** para base de datos
 - Control de versiones: **Git / GitHub**
 
 ## Estructura del repositorio
-
+- Se añadira mas adelante
