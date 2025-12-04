@@ -6,7 +6,7 @@ Este proyecto tiene como objetivo **digitalizar la gestión de un hotel**, inclu
 - 👥 Gestión de empleados
 - ⏰ Control de horarios y fichajes
 - 💰 Generación de nóminas
-- 🛎️ Administración de reservas y servicios (opcional)
+- 🛎️ Administración de reservas y servicios
 
 El proyecto cuenta con dos aplicaciones:
 
@@ -17,7 +17,7 @@ El proyecto cuenta con dos aplicaciones:
 - ☕ **Java 17+** y **JavaFX** (App de escritorio)
 - 🤖 **Kotlin** y **Android SDK** (App móvil)
 - 💻 **IntelliJ IDEA** como IDE
-- 🗄️ **SQLite / MySQL / PostgreSQL** para base de datos
+- 🗄️ **PostgreSQL** para base de datos
 - 🌐 Control de versiones: **Git / GitHub**
 
 ## 📂 Estructura del repositorio
