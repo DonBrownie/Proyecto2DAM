@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_home"
+        android:title="Inicio" />
+    <item
+        android:id="@+id/reservasFragment"
+        android:icon="@drawable/ic_key"
+        android:title="Reservas" />
+    <item
+        android:id="@+id/nominasFragment"
+        android:icon="@drawable/ic_nominas"
+        android:title="Nominas" />
+    <item
+        android:id="@+id/calendarioFragment"
+        android:icon="@drawable/ic_calendar"
+        android:title="Calendario" />
+    <item
+        android:id="@+id/perfilFragment"
+        android:icon="@drawable/ic_person"
+        android:title="Perfil" />
+</menu>
