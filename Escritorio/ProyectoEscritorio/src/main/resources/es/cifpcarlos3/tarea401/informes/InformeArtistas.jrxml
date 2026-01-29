@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.6.final using JasperReports Library version 6.20.6-5c96b6aa8a39ac1dc6b6bea4b81168e16dd39231  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InformeArtistas" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="93988342-eec9-41b4-9168-7b04707e0487">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SQLite"/>
+	<parameter name="P_ARTIST_NAME" class="java.lang.String">
+		<parameterDescription><![CDATA[Nombre de artista]]></parameterDescription>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT 
+    ar.Name AS ArtistName,
+    al.Title AS AlbumTitle,
+    t.Name AS TrackName,
+    t.Composer,
+    t.Milliseconds,
+    t.UnitPrice
+FROM artists ar
+JOIN albums al ON ar.ArtistId = al.ArtistId
+JOIN tracks t ON al.AlbumId = t.AlbumId
+WHERE ar.Name = $P{P_ARTIST_NAME}
+ORDER BY al.Title ASC, t.Name ASC]]>
+	</queryString>
+	<field name="ArtistName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ArtistName"/>
+		<property name="com.jaspersoft.studio.field.label" value="ArtistName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="artists"/>
+	</field>
+	<field name="AlbumTitle" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AlbumTitle"/>
+		<property name="com.jaspersoft.studio.field.label" value="AlbumTitle"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="albums"/>
+	</field>
+	<field name="TrackName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="TrackName"/>
+		<property name="com.jaspersoft.studio.field.label" value="TrackName"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tracks"/>
+	</field>
+	<field name="Composer" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="Composer"/>
+		<property name="com.jaspersoft.studio.field.label" value="Composer"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tracks"/>
+	</field>
+	<field name="Milliseconds" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="Milliseconds"/>
+		<property name="com.jaspersoft.studio.field.label" value="Milliseconds"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tracks"/>
+	</field>
+	<field name="UnitPrice" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="UnitPrice"/>
+		<property name="com.jaspersoft.studio.field.label" value="UnitPrice"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="tracks"/>
+	</field>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{AlbumTitle}]]></groupExpression>
+		<groupHeader>
+			<band height="55">
+				<rectangle>
+					<reportElement x="1" y="7" width="552" height="40" backcolor="#4D4D4D" uuid="28b86e93-1c85-46de-ab70-69a0d16ed967"/>
+				</rectangle>
+				<textField>
+					<reportElement x="1" y="9" width="238" height="38" forecolor="#F2F2F2" uuid="ac1e8f8c-e5f6-47cd-999a-a8ed459e8f30"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AlbumTitle}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="94" splitType="Stretch">
+			<rectangle>
+				<reportElement x="-20" y="10" width="520" height="65" backcolor="#191414" uuid="b1a9edd8-f2ab-438c-aea0-9057013c7d94">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="370" y="10" width="60" height="65" uuid="679faaa1-358b-4c8c-8975-22127e3cfc39"/>
+				<imageExpression><![CDATA["src/main/resources/es/cifpcarlos3/tarea401/informes/imagenArtistas.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="20" y="20" width="70" height="20" forecolor="#FFFFFF" uuid="2cf8f86e-ed9b-4116-985d-249dfd075731"/>
+				<textElement>
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SPOTIFY]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="40" width="100" height="20" forecolor="#FFFFFF" uuid="9820011f-63f4-4f03-a420-02c04565a708"/>
+				<text><![CDATA[Informe de artistas]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<rectangle>
+				<reportElement x="2" y="15" width="550" height="30" backcolor="#A7F29D" uuid="fa2c3dc0-aa69-4b35-a273-0c6b7d7516cd"/>
+			</rectangle>
+			<textField>
+				<reportElement x="20" y="15" width="70" height="30" uuid="2fe6d7ff-7886-4ee6-8c13-728ad3a3872e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{ArtistName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="66" splitType="Stretch">
+			<rectangle>
+				<reportElement x="50" y="0" width="130" height="66" backcolor="#8F7D7C" uuid="4e9963bf-b255-42a0-aacf-a01e5f853b24">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField>
+				<reportElement x="65" y="18" width="100" height="30" uuid="1be19d17-4405-49e5-9047-b011b6e1f1cf">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="43b2716a-c51c-49ba-bf71-99065681eac4"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{TrackName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

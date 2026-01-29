@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.ReservasController" styleClass="list-container" alignment="TOP_CENTER">
+    
+
+    <ScrollPane styleClass="scroll-pane" fitToWidth="true" style="-fx-background-color: transparent;">
+        <VBox fx:id="itemsContainer" styleClass="content-vbox">
+             <!-- Static examples for design -->
+             <HBox styleClass="item-card" alignment="CENTER_LEFT" spacing="20">
+                <Label text="🛏" style="-fx-font-size: 24px;" />
+                <VBox>
+                    <Label text="Reserva de Pepito" styleClass="card-title"/>
+                    <Label text="15sht-92" styleClass="card-subtitle"/>
+                </VBox>
+             </HBox>
+             
+             <HBox styleClass="item-card" alignment="CENTER_LEFT" spacing="20">
+                <Label text="🛏" style="-fx-font-size: 24px;" />
+                <VBox>
+                    <Label text="Reserva de Rodrigo" styleClass="card-title"/>
+                    <Label text="15sht-92" styleClass="card-subtitle"/>
+                </VBox>
+             </HBox>
+
+             <HBox styleClass="item-card" alignment="CENTER_LEFT" spacing="20">
+                <Label text="🛏" style="-fx-font-size: 24px;" />
+                <VBox>
+                    <Label text="Reserva de Rodrigo" styleClass="card-title"/>
+                    <Label text="15sht-92" styleClass="card-subtitle"/>
+                </VBox>
+             </HBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

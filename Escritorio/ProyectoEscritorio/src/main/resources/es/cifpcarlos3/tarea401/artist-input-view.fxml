@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="15.0" styleClass="main-container" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="es.cifpcarlos3.tarea401.ArtistInputController" stylesheets="@styles.css">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <Label text="Introduce el Artista" styleClass="title-label"/>
+
+    <TextField fx:id="txtArtista" promptText="Nombre del artista..." styleClass="spotify-input"/>
+
+    <Button text="Ver Informe" onAction="#generarInforme" styleClass="spotify-button"/>
+
+</VBox>

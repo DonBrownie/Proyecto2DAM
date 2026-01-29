@@ -1,0 +1,14 @@
+module es.cifpcarlos3.tarea401 {
+    requires javafx.controls;
+    requires javafx.fxml;
+    requires java.sql;
+    requires log4j;
+    requires org.xerial.sqlitejdbc;
+    requires jasperreports;
+    requires jdk.jdi;
+    requires javafx.graphics;
+
+
+    opens es.cifpcarlos3.tarea401 to javafx.fxml;
+    exports es.cifpcarlos3.tarea401;
+}
