@@ -40,11 +40,10 @@ public class NominasController {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.CENTER_LEFT);
         hbox.setPadding(new Insets(15));
-        hbox.setStyle(
-                "-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);");
-        hbox.setPrefHeight(80);
         hbox.setSpacing(10);
-        VBox.setMargin(hbox, new Insets(5, 20, 5, 20));
+        hbox.getStyleClass().add("item-card"); // Use CSS class instead of inline styles for consistency
+        hbox.setMaxWidth(500); // Fixed-ish width for centering
+        VBox.setMargin(hbox, new Insets(5, 0, 5, 0)); // No horizontal margin needed since it's centered in VBox
 
         // Icon placeholder
         Label icon = new Label("💰"); // Wallet/Money bag character
@@ -78,6 +77,8 @@ public class NominasController {
         detailBox.setPadding(new Insets(20));
         detailBox.setSpacing(15);
         detailBox.setStyle("-fx-background-color: #2c3e50; -fx-background-radius: 10;");
+        detailBox.setMaxWidth(500);
+        detailBox.setMaxHeight(300);
 
         // Header Title
         Label title = new Label("Detalles de nómina");

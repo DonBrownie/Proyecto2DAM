@@ -8,6 +8,14 @@ public class Reserva {
     private String fechaInicio;
     private String fechaFin;
 
+    public Reserva(int idReserva, String dniCliente, int numeroHabitacion, String fechaInicio, String fechaFin) {
+        this.idReserva = idReserva;
+        this.dniCliente = dniCliente;
+        this.numeroHabitacion = numeroHabitacion;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
+    }
+
     public Reserva(int idReserva, String dniCliente, String nombreCliente, int numeroHabitacion, String fechaInicio,
             String fechaFin) {
         this.idReserva = idReserva;

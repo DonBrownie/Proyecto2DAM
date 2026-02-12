@@ -1,21 +1,45 @@
 package es.cifpcarlos3.tarea401;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import java.io.IOException;
+import javafx.geometry.Insets;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import java.util.List;
 import es.cifpcarlos3.tarea401.dao.ReservaDAO;
 import es.cifpcarlos3.tarea401.model.Reserva;
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
-
-import java.util.List;
 
 public class ReservasController {
 
     @FXML
     private VBox itemsContainer;
+
+    @FXML
+    private void onAddButtonClick() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("nueva-reserva-view.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            scene.getStylesheets().add(MainApplication.class.getResource("styles.css").toExternalForm());
+
+            Stage stage = new Stage();
+            stage.setTitle("Añadir Nueva Reserva");
+            stage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            stage.setScene(scene);
+
+            // Reload list when window is closed
+            stage.setOnHidden(e -> loadReservas());
+
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public void initialize() {
         loadReservas();
@@ -49,11 +73,10 @@ public class ReservasController {
         HBox hbox = new HBox();
         hbox.setAlignment(Pos.CENTER_LEFT);
         hbox.setPadding(new Insets(15));
-        hbox.setStyle(
-                "-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);");
-        hbox.setPrefHeight(80);
         hbox.setSpacing(10);
-        VBox.setMargin(hbox, new Insets(5, 20, 5, 20));
+        hbox.getStyleClass().add("item-card"); // Use CSS class for consistency
+        hbox.setMaxWidth(500); // Fixed-ish width for centering
+        VBox.setMargin(hbox, new Insets(5, 0, 5, 0)); // No horizontal margin needed since it's centered in VBox
 
         // Icon placeholder (using a label or simple shape if no image)
         Label icon = new Label("🛏"); // Bed character
@@ -86,8 +109,9 @@ public class ReservasController {
         VBox detailBox = new VBox();
         detailBox.setPadding(new Insets(20));
         detailBox.setSpacing(15);
-        detailBox.setStyle("-fx-background-color: #2c3e50; -fx-background-radius: 10;"); // Dark background like
-                                                                                         // screenshot
+        detailBox.setStyle("-fx-background-color: #2c3e50; -fx-background-radius: 10;");
+        detailBox.setMaxWidth(500);
+        detailBox.setMaxHeight(300);
 
         // Header Title
         Label title = new Label("Detalles de reserva");

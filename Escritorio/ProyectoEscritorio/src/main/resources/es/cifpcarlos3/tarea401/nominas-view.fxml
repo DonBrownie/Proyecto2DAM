@@ -10,8 +10,8 @@
     
 
     <ScrollPane styleClass="scroll-pane" fitToWidth="true" style="-fx-background-color: transparent;">
-        <VBox fx:id="itemsContainer" styleClass="content-vbox">
-             <!-- Static examples for design -->
+        <VBox fx:id="itemsContainer" styleClass="content-vbox" alignment="TOP_CENTER">
+
              <HBox styleClass="item-card" alignment="CENTER_LEFT" spacing="20">
                 <Label text="💶" style="-fx-font-size: 24px;" />
                 <VBox>

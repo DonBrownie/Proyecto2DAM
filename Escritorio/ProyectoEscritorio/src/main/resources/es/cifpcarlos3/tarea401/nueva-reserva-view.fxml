@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.NuevaReservaController" 
+      spacing="15" style="-fx-background-color: #b3e5fc; -fx-padding: 30;" prefWidth="400">
+    
+    <Label text="AÑADIR NUEVA RESERVA" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0288d1;"/>
+    
+    <VBox spacing="5">
+        <Label text="DNI del Cliente:"/>
+        <TextField fx:id="dniField" promptText="Ej: 12345678A" styleClass="login-field"/>
+    </VBox>
+    
+    <VBox spacing="5">
+        <Label text="Número de Habitación:"/>
+        <TextField fx:id="habitacionField" promptText="Ej: 101" styleClass="login-field"/>
+    </VBox>
+    
+    <VBox spacing="5">
+        <Label text="Fecha de Inicio:"/>
+        <DatePicker fx:id="fechaInicioPicker" maxWidth="Infinity"/>
+    </VBox>
+    
+    <VBox spacing="5">
+        <Label text="Fecha de Fin:"/>
+        <DatePicker fx:id="fechaFinPicker" maxWidth="Infinity"/>
+    </VBox>
+    
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <Button text="Cancelar" onAction="#onCancelClick" styleClass="login-button" style="-fx-background-color: #ef5350; -fx-text-fill: white;"/>
+        <Button text="Guardar" onAction="#onSaveClick" styleClass="login-button" style="-fx-background-color: #66bb6a; -fx-text-fill: white;"/>
+    </HBox>
+    
+</VBox>

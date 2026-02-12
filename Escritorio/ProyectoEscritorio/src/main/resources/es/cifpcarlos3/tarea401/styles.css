@@ -147,6 +147,7 @@
   -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.1), 3, 0, 0, 2);
   -fx-padding: 15;
   -fx-cursor: hand;
+  -fx-max-width: 500; /* Centered cards with fixed-ish width */
 }
 .item-card:hover {
   -fx-background-color: #fcfcfc;
@@ -158,4 +159,25 @@
 .card-subtitle {
   -fx-text-fill: gray;
   -fx-font-size: 12px;
+}
+
+/* --- Floating Action Button --- */
+.fab-button {
+  -fx-background-color: -fx-white;
+  -fx-background-radius: 10;
+  -fx-min-width: 60;
+  -fx-min-height: 60;
+  -fx-pref-width: 60;
+  -fx-pref-height: 60;
+  -fx-font-size: 30px;
+  -fx-text-fill: -fx-dark-blue;
+  -fx-font-weight: bold;
+  -fx-cursor: hand;
+  -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+.fab-button:hover {
+  -fx-background-color: #f0f0f0;
+  -fx-scale-x: 1.1;
+  -fx-scale-y: 1.1;
 }

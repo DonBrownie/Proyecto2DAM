@@ -8,7 +8,22 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import javafx.scene.control.Label;
+import es.cifpcarlos3.tarea401.model.Usuario;
+
 public class PerfilController {
+
+    @FXML
+    private Label userNameLabel;
+
+    @FXML
+    public void initialize() {
+        Usuario user = MainApplication.currentUser;
+        if (user != null) {
+            String fullName = user.getNombre() + " " + user.getApellido1();
+            userNameLabel.setText(fullName);
+        }
+    }
 
     @FXML
     public void onLogoutClick(MouseEvent event) {

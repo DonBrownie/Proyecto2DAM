@@ -45,4 +45,19 @@ public class ReservaDAO {
         }
         return reservas;
     }
+
+    public boolean insertReserva(Reserva reserva) throws SQLException {
+        String sql = "INSERT INTO Reservas (dni_cliente, numero_habitacion, fecha_inicio, fecha_fin) VALUES (?, ?, ?, ?)";
+        try (Connection conn = DatabaseConnection.getConnection();
+                PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, reserva.getDniCliente());
+            pstmt.setInt(2, reserva.getNumeroHabitacion());
+            pstmt.setString(3, reserva.getFechaInicio());
+            pstmt.setString(4, reserva.getFechaFin());
+
+            int affectedRows = pstmt.executeUpdate();
+            return affectedRows > 0;
+        }
+    }
 }
