@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.LoginController" styleClass="root">
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.controller.LoginController" styleClass="root">
     <VBox alignment="CENTER" spacing="20.0" styleClass="login-container">
         <padding>
             <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>

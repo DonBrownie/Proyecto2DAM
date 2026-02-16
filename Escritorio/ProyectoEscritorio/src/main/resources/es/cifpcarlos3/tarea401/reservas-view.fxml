@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.geometry.Insets?>
 
-<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.ReservasController">
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.controller.ReservasController">
     <VBox styleClass="list-container" alignment="TOP_CENTER">
         <ScrollPane styleClass="scroll-pane" fitToWidth="true" style="-fx-background-color: transparent;">
             <VBox fx:id="itemsContainer" styleClass="content-vbox" alignment="TOP_CENTER">

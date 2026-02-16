@@ -1,4 +1,4 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
 
+import es.cifpcarlos3.tarea401.MainApplication;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,7 +29,7 @@ public class MainLayoutController implements Initializable {
 
     private void loadView(String fxmlFileName, String title) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFileName));
+            FXMLLoader loader = new FXMLLoader(MainApplication.class.getResource(fxmlFileName));
 
             // Special handling for home-content to set its controller dynamically if
             // needed,

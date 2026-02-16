@@ -1,4 +1,4 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +12,7 @@ import javafx.scene.control.Alert;
 import es.cifpcarlos3.tarea401.dao.UsuarioDAO;
 import es.cifpcarlos3.tarea401.model.Usuario;
 import java.io.IOException;
+import es.cifpcarlos3.tarea401.MainApplication;
 
 public class LoginController {
 

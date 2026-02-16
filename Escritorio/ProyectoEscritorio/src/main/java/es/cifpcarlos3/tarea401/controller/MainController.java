@@ -1,8 +1,7 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.view.JasperViewer;
 
@@ -12,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
+import es.cifpcarlos3.tarea401.MainApplication;
 
 public class MainController {
 

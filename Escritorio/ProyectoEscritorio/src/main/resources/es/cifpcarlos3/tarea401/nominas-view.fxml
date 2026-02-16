@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.geometry.Insets?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.NominasController" styleClass="list-container" alignment="TOP_CENTER">
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.controller.NominasController" styleClass="list-container" alignment="TOP_CENTER">
     
 
     <ScrollPane styleClass="scroll-pane" fitToWidth="true" style="-fx-background-color: transparent;">

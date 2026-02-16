@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS `Reservas`;
 DROP TABLE IF EXISTS `Nomina`;
 DROP TABLE IF EXISTS `Contrasena`;
 DROP TABLE IF EXISTS `Habitacion`;
+DROP TABLE IF EXISTS `Clientes`;
 DROP TABLE IF EXISTS `Usuarios`;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -36,6 +37,14 @@ CREATE TABLE IF NOT EXISTS `Contrasena` (
 	`contrasena` VARCHAR(255) NOT NULL,
 	PRIMARY KEY(`id_usu`),
 	CONSTRAINT `Contrasena_id_usu_fk` FOREIGN KEY(`id_usu`) REFERENCES `Usuarios`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
+-- Tabla: Clientes
+CREATE TABLE IF NOT EXISTS `Clientes` (
+    `dni` VARCHAR(255) NOT NULL,
+    `nombre` VARCHAR(255) NOT NULL,
+    `apellidos` VARCHAR(255) NOT NULL,
+    PRIMARY KEY(`dni`)
 ) ENGINE=InnoDB;
 
 -- Tabla: Habitacion
@@ -63,7 +72,8 @@ CREATE TABLE IF NOT EXISTS `Reservas` (
 	`fecha_inicio` VARCHAR(255) NOT NULL,
 	`fecha_fin` VARCHAR(255) NOT NULL,
 	PRIMARY KEY(`id_reserva`),
-	CONSTRAINT `Reservas_habitacion_fk` FOREIGN KEY(`numero_habitacion`) REFERENCES `Habitacion`(`id_habitacion`) ON DELETE SET NULL ON UPDATE CASCADE
+	CONSTRAINT `Reservas_habitacion_fk` FOREIGN KEY(`numero_habitacion`) REFERENCES `Habitacion`(`id_habitacion`) ON DELETE SET NULL ON UPDATE CASCADE,
+	CONSTRAINT `Reservas_Clientes_fk` FOREIGN KEY (`dni_cliente`) REFERENCES `Clientes`(`dni`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
 
 -- Insertar datos de prueba
@@ -80,6 +90,13 @@ INSERT INTO `Contrasena` (`id_usu`, `usuario`, `contrasena`) VALUES
 (3, 'lmartinez', 'pass789'),
 (4, 'mlopez', 'admin1'),
 (5, 'csanchez', 'cocina1');
+
+INSERT INTO `Clientes` (`dni`, `nombre`, `apellidos`) VALUES
+('99887766Z', 'Rodrigo', 'Montoya Pastor'),
+('11223344Y', 'Pepito', 'Perez'), 
+('55667788X', 'Maria', 'Garcia'),
+('22334455W', 'Juan', 'Lopez'),
+('66778899V', 'Laura', 'Sanchez');
 
 INSERT INTO `Habitacion` (`id_habitacion`, `Disponible`) VALUES
 (101, 1),

@@ -1,4 +1,4 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import java.io.IOException;
 
+import es.cifpcarlos3.tarea401.MainApplication;
 import javafx.scene.control.Label;
 import es.cifpcarlos3.tarea401.model.Usuario;
 

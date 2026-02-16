@@ -1,4 +1,4 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import es.cifpcarlos3.tarea401.dao.NominaDAO;
 import es.cifpcarlos3.tarea401.model.Nomina;

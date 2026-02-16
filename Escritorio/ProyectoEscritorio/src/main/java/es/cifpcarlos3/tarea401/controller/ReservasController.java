@@ -1,9 +1,10 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
+import es.cifpcarlos3.tarea401.MainApplication;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;

@@ -8,7 +8,9 @@ module es.cifpcarlos3.tarea401 {
     requires jdk.jdi;
     requires javafx.graphics;
 
-
     opens es.cifpcarlos3.tarea401 to javafx.fxml;
+    opens es.cifpcarlos3.tarea401.controller to javafx.fxml;
+
     exports es.cifpcarlos3.tarea401;
+    exports es.cifpcarlos3.tarea401.controller;
 }

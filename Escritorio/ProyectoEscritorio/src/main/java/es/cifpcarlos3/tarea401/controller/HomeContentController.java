@@ -1,4 +1,4 @@
-package es.cifpcarlos3.tarea401;
+package es.cifpcarlos3.tarea401.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
