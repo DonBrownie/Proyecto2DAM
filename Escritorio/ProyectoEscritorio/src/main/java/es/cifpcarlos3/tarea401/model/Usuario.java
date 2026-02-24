@@ -9,6 +9,9 @@ public class Usuario {
     private String dni;
     private int telefono;
 
+    public Usuario() {
+    }
+
     public Usuario(int id, String nombre, String apellido1, String apellido2, String puesto, String dni, int telefono) {
         this.id = id;
         this.nombre = nombre;

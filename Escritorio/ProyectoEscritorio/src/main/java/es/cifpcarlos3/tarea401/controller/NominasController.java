@@ -1,5 +1,6 @@
 package es.cifpcarlos3.tarea401.controller;
 
+import es.cifpcarlos3.tarea401.MainApplication;
 import es.cifpcarlos3.tarea401.dao.NominaDAO;
 import es.cifpcarlos3.tarea401.model.Nomina;
 import javafx.fxml.FXML;
@@ -10,7 +11,17 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.JasperViewer;
+import es.cifpcarlos3.tarea401.utils.DatabaseConnection;
+
+import java.io.InputStream;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class NominasController {
 
@@ -31,8 +42,10 @@ public class NominasController {
         headerLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1a4f8b; -fx-padding: 10;");
 
         for (Nomina nomina : nominas) {
-            HBox itemBox = createNominaItem(nomina);
-            itemsContainer.getChildren().add(itemBox);
+            if (MainApplication.currentUser != null && nomina.getIdUsu() == MainApplication.currentUser.getId()) {
+                HBox itemBox = createNominaItem(nomina);
+                itemsContainer.getChildren().add(itemBox);
+            }
         }
     }
 
@@ -71,49 +84,32 @@ public class NominasController {
     }
 
     private void showNominaDetails(Nomina nomina) {
-        itemsContainer.getChildren().clear();
+        try {
+            // Cargar el archivo JRXML (asegúrate de que esté en
+            // src/main/resources/informes/Nomina.jrxml)
+            InputStream reportStream = getClass().getResourceAsStream("/informes/Nomina.jrxml");
+            if (reportStream == null) {
+                System.err.println("No se encontró el archivo Nomina.jrxml en resources/informes/");
+                return;
+            }
 
-        VBox detailBox = new VBox();
-        detailBox.setPadding(new Insets(20));
-        detailBox.setSpacing(15);
-        detailBox.setStyle("-fx-background-color: #2c3e50; -fx-background-radius: 10;");
-        detailBox.setMaxWidth(500);
-        detailBox.setMaxHeight(300);
+            // Compilar el informe
+            JasperReport jasperReport = JasperCompileManager.compileReport(reportStream);
 
-        // Header Title
-        Label title = new Label("Detalles de nómina");
-        title.setStyle("-fx-text-fill: white; -fx-font-size: 18px; -fx-font-weight: bold;");
+            // Preparar parámetros: el informe espera ID_NOMINA_PARAM
+            Map<String, Object> parameters = new HashMap<>();
+            parameters.put("ID_NOMINA_PARAM", String.valueOf(nomina.getIdNomina()));
 
-        // Info
-        Label idLabel = new Label("ID Nómina: " + nomina.getIdNomina());
-        idLabel.setStyle("-fx-text-fill: #bdc3c7; -fx-font-size: 14px;");
+            // Llenar el informe utilizando la conexión a la base de datos
+            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters,
+                    DatabaseConnection.getConnection());
 
-        Label userLabel = new Label("ID Empleado: " + nomina.getIdUsu());
-        userLabel.setStyle("-fx-text-fill: #bdc3c7; -fx-font-size: 14px;");
+            // Mostrar el informe en una ventana del visor de Jasper
+            JasperViewer.viewReport(jasperPrint, false); // false para no cerrar toda la app al cerrar el visor
 
-        // Section: Pago
-        Label infoHeader = new Label("Información de pago");
-        infoHeader.setStyle("-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 10 0 5 0;");
-
-        Label payLabel = new Label("Importe neto: " + nomina.getPago() + " €");
-        payLabel.setStyle("-fx-text-fill: #bdc3c7; -fx-font-size: 16px; -fx-font-weight: bold;");
-
-        Label dateLabel = new Label("Fecha de emisión: " + nomina.getFecha());
-        dateLabel.setStyle("-fx-text-fill: #bdc3c7;");
-
-        // Button to go back
-        Label backButton = new Label("⬅ Volver");
-        backButton.setStyle(
-                "-fx-text-fill: #3498db; -fx-font-weight: bold; -fx-cursor: hand; -fx-font-size: 14px; -fx-padding: 10 0 0 0;");
-        backButton.setOnMouseClicked(e -> loadNominas());
-
-        detailBox.getChildren().addAll(
-                title,
-                idLabel, userLabel,
-                infoHeader,
-                payLabel, dateLabel,
-                backButton);
-
-        itemsContainer.getChildren().add(detailBox);
+        } catch (Exception ex) {
+            System.err.println("Error al generar el informe Jasper: " + ex.getMessage());
+            ex.printStackTrace();
+        }
     }
 }

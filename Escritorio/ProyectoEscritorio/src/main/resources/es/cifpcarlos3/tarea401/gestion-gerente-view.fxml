@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="es.cifpcarlos3.tarea401.controller.GestionGerenteController" 
+      spacing="15" 
+      styleClass="management-container"
+      stylesheets="@styles.css">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Título eliminado por redundancia con el header superior -->
+
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="management-tab-pane" maxWidth="600">
+        <tabs>
+            <!-- Pestaña Usuarios -->
+            <Tab text="NUEVO EMPLEADO">
+                <VBox spacing="20" alignment="TOP_CENTER">
+                    <padding>
+                        <Insets top="30" right="30" bottom="30" left="30"/>
+                    </padding>
+    <VBox styleClass="form-card" maxWidth="600">
+        <GridPane hgap="20" vgap="20">
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
+                <Label text="Nombre" styleClass="form-label"/>
+                <TextField fx:id="uNombre" styleClass="modern-field" promptText="Ej: Juan"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <Label text="Apellido 1" styleClass="form-label"/>
+                <TextField fx:id="uApellido1" styleClass="modern-field" promptText="Ej: Pérez"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <Label text="Puesto" styleClass="form-label"/>
+                <TextField fx:id="uPuesto" styleClass="modern-field" promptText="Gerente, Cocina..."/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <Label text="DNI" styleClass="form-label"/>
+                <TextField fx:id="uDni" styleClass="modern-field" promptText="12345678X"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="2">
+                <Label text="Teléfono" styleClass="form-label"/>
+                <TextField fx:id="uTelefono" styleClass="modern-field" promptText="600123456"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <Label text="Usuario Acceso" styleClass="form-label"/>
+                <TextField fx:id="uLogin" styleClass="modern-field" promptText="jperez"/>
+            </VBox>
+
+            <VBox GridPane.columnIndex="0" GridPane.rowIndex="3" GridPane.columnSpan="2">
+                <Label text="Contraseña" styleClass="form-label"/>
+                <PasswordField fx:id="uPass" styleClass="modern-field" promptText="••••••••"/>
+            </VBox>
+        </GridPane>
+        <VBox alignment="CENTER" style="-fx-padding: 30 0 10 0;">
+            <Button text="CREAR EMPLEADO" onAction="#registrarUsuario" styleClass="premium-button"/>
+        </VBox>
+    </VBox>
+</VBox>
+</Tab>
+
+<!-- Pestaña Clientes -->
+<Tab text="ALTA CLIENTE">
+<VBox spacing="20" alignment="TOP_CENTER">
+    <padding>
+        <Insets top="40" right="30" bottom="30" left="30"/>
+    </padding>
+    <VBox styleClass="form-card" maxWidth="450">
+        <VBox spacing="20">
+            <VBox>
+                <Label text="DNI Cliente" styleClass="form-label"/>
+                <TextField fx:id="cDni" styleClass="modern-field" promptText="12345678A"/>
+            </VBox>
+            <VBox>
+                <Label text="Nombre" styleClass="form-label"/>
+                <TextField fx:id="cNombre" styleClass="modern-field" promptText="Ej: María"/>
+            </VBox>
+            <VBox>
+                <Label text="Apellidos" styleClass="form-label"/>
+                <TextField fx:id="cApellidos" styleClass="modern-field" promptText="Cano García"/>
+            </VBox>
+        </VBox>
+        <VBox alignment="CENTER" style="-fx-padding: 30 0 10 0;">
+            <Button text="REGISTRAR CLIENTE" onAction="#registrarCliente" styleClass="premium-button"/>
+        </VBox>
+    </VBox>
+</VBox>
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>

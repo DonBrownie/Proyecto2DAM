@@ -27,13 +27,21 @@
         android:id="@+id/reservasFragment"
         android:name="com.example.tarearetrofit.fragments.ReservasFragment"
         android:label="Reservas"
-        tools:layout="@layout/fragment_reservas"/>
+        tools:layout="@layout/fragment_reservas">
+        <action
+            android:id="@+id/action_reservasFragment_to_reservaDetailFragment"
+            app:destination="@id/reservaDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nominasFragment"
         android:name="com.example.tarearetrofit.fragments.NominasFragment"
         android:label="Nominas"
-        tools:layout="@layout/fragment_nominas"/>
+        tools:layout="@layout/fragment_nominas">
+        <action
+            android:id="@+id/action_nominasFragment_to_nominaDetailFragment"
+            app:destination="@id/nominaDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/calendarioFragment"
@@ -45,6 +53,49 @@
         android:id="@+id/perfilFragment"
         android:name="com.example.tarearetrofit.fragments.PerfilFragment"
         android:label="Perfil"
-        tools:layout="@layout/fragment_perfil"/>
+        tools:layout="@layout/fragment_perfil">
+        <action
+            android:id="@+id/action_perfilFragment_to_accountFragment"
+            app:destination="@id/accountFragment" />
+        <action
+            android:id="@+id/action_perfilFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.example.tarearetrofit.fragments.AccountFragment"
+        android:label="Cuenta"
+        tools:layout="@layout/fragment_account" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.tarearetrofit.fragments.SettingsFragment"
+        android:label="Ajustes"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/gestionFragment"
+        android:name="com.example.tarearetrofit.fragments.GestionFragment"
+        android:label="Gestión"
+        tools:layout="@layout/fragment_gestion" />
+
+    <fragment
+        android:id="@+id/nominaDetailFragment"
+        android:name="com.example.tarearetrofit.fragments.NominaDetailFragment"
+        android:label="Detalle Nómina"
+        tools:layout="@layout/fragment_nomina_detail" />
+
+    <fragment
+        android:id="@+id/reservaDetailFragment"
+        android:name="com.example.tarearetrofit.fragments.ReservaDetailFragment"
+        android:label="Detalle Reserva"
+        tools:layout="@layout/fragment_reserva_detail" />
+
+    <action
+        android:id="@+id/action_global_loginFragment"
+        app:destination="@id/loginFragment"
+        app:popUpTo="@id/nav_graph"
+        app:popUpToInclusive="true" />
 
 </navigation>

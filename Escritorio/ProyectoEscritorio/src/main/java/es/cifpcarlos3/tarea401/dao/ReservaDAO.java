@@ -1,63 +1,52 @@
 package es.cifpcarlos3.tarea401.dao;
 
 import es.cifpcarlos3.tarea401.model.Reserva;
-import es.cifpcarlos3.tarea401.utils.DatabaseConnection;
+import es.cifpcarlos3.tarea401.utils.ApiClient;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
+/**
+ * Clase que gestiona la comunicación con la API para la tabla Reservas.
+ * Actúa como intermediario (DAO - Data Access Object).
+ */
 public class ReservaDAO {
 
+    /**
+     * Obtiene una lista de todas las reservas registradas.
+     * 
+     * @return Lista de objetos Reserva. Si hay error, devuelve lista vacía.
+     */
     public List<Reserva> getAllReservas() {
-        List<Reserva> reservas = new ArrayList<>();
-        // Left Join to ensure we get reservations even if client is missing (though
-        // ideally they shouldn't be)
-        String sql = "SELECT r.*, c.nombre, c.apellidos FROM Reservas r " +
-                "LEFT JOIN Clientes c ON r.dni_cliente = c.dni";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                ResultSet rs = pstmt.executeQuery()) {
-
-            while (rs.next()) {
-                String nombreCompleto = rs.getString("nombre");
-                if (nombreCompleto == null) {
-                    nombreCompleto = "Desconocido";
-                } else {
-                    nombreCompleto += " " + rs.getString("apellidos");
-                }
-
-                reservas.add(new Reserva(
-                        rs.getInt("id_reserva"),
-                        rs.getString("dni_cliente"),
-                        nombreCompleto,
-                        rs.getInt("numero_habitacion"),
-                        rs.getString("fecha_inicio"),
-                        rs.getString("fecha_fin")));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.err.println("Error al cargar reservas: " + e.getMessage());
+        try {
+            // Pide las reservas a la API usando el método GET
+            Reserva[] reservasArray = ApiClient.get("/reservas", Reserva[].class);
+            // Convierte el array en una ArrayList para trabajar más fácil
+            return new ArrayList<>(Arrays.asList(reservasArray));
+        } catch (Exception e) {
+            System.err.println("Error al cargar reservas desde API: " + e.getMessage());
+            return new ArrayList<>();
         }
-        return reservas;
     }
 
+    /**
+     * Guarda una nueva reserva enviándola a la API.
+     * 
+     * @param reserva Objeto con los datos de la reserva a guardar.
+     * @return true si se guarda correctamente.
+     * @throws SQLException si ocurre un error al insertarla en la API.
+     */
     public boolean insertReserva(Reserva reserva) throws SQLException {
-        String sql = "INSERT INTO Reservas (dni_cliente, numero_habitacion, fecha_inicio, fecha_fin) VALUES (?, ?, ?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-                PreparedStatement pstmt = conn.prepareStatement(sql)) {
-
-            pstmt.setString(1, reserva.getDniCliente());
-            pstmt.setInt(2, reserva.getNumeroHabitacion());
-            pstmt.setString(3, reserva.getFechaInicio());
-            pstmt.setString(4, reserva.getFechaFin());
-
-            int affectedRows = pstmt.executeUpdate();
-            return affectedRows > 0;
+        try {
+            // Envía los datos de la reserva a la API usando el método POST
+            ApiClient.post("/reservas", reserva, Reserva.class);
+            return true;
+        } catch (Exception e) {
+            // Si falla, lanza una excepción (error) para avisar al controlador
+            throw new SQLException("Error al insertar reserva vía API: " + e.getMessage());
         }
     }
 }

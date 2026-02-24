@@ -31,6 +31,7 @@
             <Button text="Reservas" onAction="#onReservasClick" styleClass="nav-button"/>
             <Button text="Nominas" onAction="#onNominasClick" styleClass="nav-button"/>
             <Button text="Calendario" onAction="#onCalendarioClick" styleClass="nav-button"/>
+            <Button fx:id="btnGestion" text="Gestión" onAction="#onGestionClick" styleClass="nav-button" managed="false" visible="false"/>
             <Button text="Perfil" onAction="#onPerfilClick" styleClass="nav-button"/>
         </HBox>
     </bottom>

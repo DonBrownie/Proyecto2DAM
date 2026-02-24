@@ -1,14 +1,14 @@
 package es.cifpcarlos3.tarea401.model;
 
 public class Reserva {
-    private int idReserva;
+    private Integer idReserva;
     private String dniCliente;
     private String nombreCliente; // New field
     private int numeroHabitacion;
     private String fechaInicio;
     private String fechaFin;
 
-    public Reserva(int idReserva, String dniCliente, int numeroHabitacion, String fechaInicio, String fechaFin) {
+    public Reserva(Integer idReserva, String dniCliente, int numeroHabitacion, String fechaInicio, String fechaFin) {
         this.idReserva = idReserva;
         this.dniCliente = dniCliente;
         this.numeroHabitacion = numeroHabitacion;
@@ -16,7 +16,7 @@ public class Reserva {
         this.fechaFin = fechaFin;
     }
 
-    public Reserva(int idReserva, String dniCliente, String nombreCliente, int numeroHabitacion, String fechaInicio,
+    public Reserva(Integer idReserva, String dniCliente, String nombreCliente, int numeroHabitacion, String fechaInicio,
             String fechaFin) {
         this.idReserva = idReserva;
         this.dniCliente = dniCliente;

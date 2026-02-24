@@ -1,10 +1,7 @@
 <resources>
-    <string name="app_name">Tarea Retrofit</string>
+    <string name="app_name">RathianProyect</string>
     <!-- Textos para item_layout -->
-    <string name="character_name">Luke Skywalker</string>
-    <string name="character_height">172</string>
-    <string name="character_gender">Male</string>
+    <string name="placeholder_label">--</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="moviesCharacter">Peliculas en las que aparece este personaje:</string>
 </resources>

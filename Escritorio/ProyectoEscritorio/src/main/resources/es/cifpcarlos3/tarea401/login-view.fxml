@@ -28,6 +28,6 @@
 
         <Button text="Iniciar Sesión" onAction="#onLoginButtonClick" styleClass="login-button"/>
 
-        <Label text="¿Problemas al iniciar sesion?" styleClass="link-label"/>
+
     </VBox>
 </StackPane>

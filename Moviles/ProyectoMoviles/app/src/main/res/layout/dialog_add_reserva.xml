@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/et_dni_cliente"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="DNI Cliente"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_room_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Número de Habitación"
+        android:inputType="number"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/et_fecha_inicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha Inicio (YYYY-MM-DD)"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/et_fecha_fin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Fecha Fin (YYYY-MM-DD)"
+        android:inputType="none"
+        android:focusable="false"
+        android:clickable="true"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>

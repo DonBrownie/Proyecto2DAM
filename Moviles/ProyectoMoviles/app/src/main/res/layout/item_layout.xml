@@ -30,7 +30,7 @@
 
         <TextView
                 android:id="@+id/tvName"
-                android:text="@string/character_name"
+                android:text="@string/placeholder_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
@@ -38,13 +38,13 @@
 
         <TextView
                 android:id="@+id/tvGender"
-                android:text="@string/character_gender"
+                android:text="@string/placeholder_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         <TextView
                 android:id="@+id/tvHeight"
-                android:text="@string/character_height"
+                android:text="@string/placeholder_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
