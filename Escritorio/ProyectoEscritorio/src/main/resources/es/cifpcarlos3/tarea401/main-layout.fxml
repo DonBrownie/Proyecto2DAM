@@ -10,21 +10,17 @@
 
 <BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="es.cifpcarlos3.tarea401.controller.MainLayoutController" styleClass="root" prefWidth="800" prefHeight="600">
     
-    <!-- Top Header -->
     <top>
         <HBox styleClass="header-bar" alignment="CENTER">
             <Label text="INICIO" fx:id="headerTitle" styleClass="header-title"/>
         </HBox>
     </top>
 
-    <!-- Center Content -->
     <center>
         <StackPane fx:id="contentArea">
-            <!-- Content will be loaded here dynamically -->
         </StackPane>
     </center>
 
-    <!-- Bottom Navigation -->
     <bottom>
         <HBox styleClass="bottom-nav-bar" alignment="CENTER">
             <Button text="Inicio" onAction="#onHomeClick" styleClass="nav-button"/>

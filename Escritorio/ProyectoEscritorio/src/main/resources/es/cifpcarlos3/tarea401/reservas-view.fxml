@@ -10,7 +10,6 @@
     <VBox styleClass="list-container" alignment="TOP_CENTER">
         <ScrollPane styleClass="scroll-pane" fitToWidth="true" style="-fx-background-color: transparent;">
             <VBox fx:id="itemsContainer" styleClass="content-vbox" alignment="TOP_CENTER">
-                 <!-- Items will be centered -->
             </VBox>
         </ScrollPane>
     </VBox>

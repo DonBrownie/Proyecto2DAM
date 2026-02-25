@@ -20,11 +20,9 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <!-- Título eliminado por redundancia con el header superior -->
 
     <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS" styleClass="management-tab-pane" maxWidth="600">
         <tabs>
-            <!-- Pestaña Usuarios -->
             <Tab text="NUEVO EMPLEADO">
                 <VBox spacing="20" alignment="TOP_CENTER">
                     <padding>

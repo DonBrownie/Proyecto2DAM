@@ -17,7 +17,6 @@
 
         <Label text="Inicio de Sesión" styleClass="login-title"/>
 
-        <!-- Avatar Placeholder -->
         <StackPane>
             <Circle radius="35.0" fill="#0d1b2a" stroke="#29B6F6" strokeWidth="2" />
             <Label text="R" textFill="WHITE" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
