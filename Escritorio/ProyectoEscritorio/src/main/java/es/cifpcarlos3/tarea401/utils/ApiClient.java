@@ -33,13 +33,11 @@ public class ApiClient {
      * Le pasas la ruta (el endpoint) y qué tipo de objeto esperas recibir.
      */
     public static <T> T get(String endpoint, Class<T> responseType) throws Exception {
-        // Preparamos la carta (request)
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(BASE_URL + endpoint))
                 .GET()
                 .build();
 
-        // Mandamos la carta y esperamos a ver qué nos dice el servidor.
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         // Si el servidor nos dice que todo OK (está entre el 200 y el 299), devolvemos

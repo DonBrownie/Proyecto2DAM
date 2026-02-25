@@ -15,6 +15,7 @@ import java.sql.SQLException;
  */
 public class UsuarioDAO {
 
+
     /**
      * Intenta iniciar sesión con un usuario y contraseña.
      * 
@@ -29,8 +30,6 @@ public class UsuarioDAO {
             // Envía el usuario y contraseña a la ruta de login por el método POST
             return ApiClient.post("/auth/login", Map.of("username", username, "password", password), Usuario.class);
         } catch (Exception e) {
-            // Imprime error si el login falla (por ejemplo contraseña incorrecta o servidor
-            // caído)
             System.err.println("Login API Error: " + e.getMessage());
             return null;
         }
@@ -38,7 +37,6 @@ public class UsuarioDAO {
 
     /**
      * Actualiza la información de un usuario existente.
-     * 
      * @param usuario El objeto usuario con sus datos nuevos.
      * @return true si se actualizó con éxito, false si hubo error.
      */
@@ -63,8 +61,6 @@ public class UsuarioDAO {
      */
     public boolean updatePassword(int userId, String passwordHash) {
         try {
-            // Envía la nueva contraseña a la API usando el método PUT.
-            // putVoid significa que no esperamos que la API nos devuelva un objeto como respuesta.
             ApiClient.putVoid("/auth/updatePassword/" + userId, Map.of("newPassword", passwordHash));
             return true;
         } catch (Exception e) {

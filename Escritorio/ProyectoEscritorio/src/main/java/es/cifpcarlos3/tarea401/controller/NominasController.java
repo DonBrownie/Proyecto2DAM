@@ -105,7 +105,7 @@ public class NominasController {
                     DatabaseConnection.getConnection());
 
             // Mostrar el informe en una ventana del visor de Jasper
-            JasperViewer.viewReport(jasperPrint, false); // false para no cerrar toda la app al cerrar el visor
+            JasperViewer.viewReport(jasperPrint, false);
 
         } catch (Exception ex) {
             System.err.println("Error al generar el informe Jasper: " + ex.getMessage());
