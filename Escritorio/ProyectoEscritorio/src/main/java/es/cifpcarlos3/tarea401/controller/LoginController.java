@@ -35,7 +35,7 @@ public class LoginController {
         // trim()
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
-
+        System.out.println("A");
         System.out.println("Intento de login con usuario: '" + username + "'");
 
         // Si están vacíos, mostramos una alerta

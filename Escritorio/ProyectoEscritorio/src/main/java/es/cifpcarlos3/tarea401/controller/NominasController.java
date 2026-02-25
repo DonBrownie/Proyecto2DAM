@@ -37,7 +37,6 @@ public class NominasController {
         NominaDAO nominaDAO = new NominaDAO();
         List<Nomina> nominas = nominaDAO.getAllNominas();
 
-        // Add header
         Label headerLabel = new Label("NOMINAS");
         headerLabel.setStyle("-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1a4f8b; -fx-padding: 10;");
 
@@ -54,12 +53,11 @@ public class NominasController {
         hbox.setAlignment(Pos.CENTER_LEFT);
         hbox.setPadding(new Insets(15));
         hbox.setSpacing(10);
-        hbox.getStyleClass().add("item-card"); // Use CSS class instead of inline styles for consistency
-        hbox.setMaxWidth(500); // Fixed-ish width for centering
-        VBox.setMargin(hbox, new Insets(5, 0, 5, 0)); // No horizontal margin needed since it's centered in VBox
+        hbox.getStyleClass().add("item-card");
+        hbox.setMaxWidth(500);
+        VBox.setMargin(hbox, new Insets(5, 0, 5, 0));
 
-        // Icon placeholder
-        Label icon = new Label("💰"); // Wallet/Money bag character
+        Label icon = new Label("💰");
         icon.setStyle("-fx-font-size: 30px; -fx-text-fill: #888;");
 
         VBox infoBox = new VBox();
@@ -70,14 +68,12 @@ public class NominasController {
         subLabel.setStyle("-fx-text-fill: #888; -fx-font-size: 12px;");
         infoBox.getChildren().addAll(titleLabel, subLabel);
 
-        // Arrow
         Label arrow = new Label(">");
         arrow.setStyle("-fx-font-size: 20px; -fx-text-fill: #ccc;");
         HBox.setHgrow(infoBox, Priority.ALWAYS);
 
         hbox.getChildren().addAll(icon, infoBox, arrow);
 
-        // Click event to show details
         hbox.setOnMouseClicked(e -> showNominaDetails(nomina));
 
         return hbox;
