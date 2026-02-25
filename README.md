@@ -22,5 +22,13 @@ El proyecto cuenta con dos aplicaciones:
 
 ## 📂 Estructura del repositorio
 
-
-- Se añadira mas adelante
+```text
+Digitalizacion-Hotel/
+├── 📁 Documentacion/          # Documentos del proyecto, diagramas y guías
+├── 📁 Escritorio/             # Código fuente de la aplicación de escritorio
+│   └── 📁 ProyectoEscritorio/   # Proyecto JavaFX (IntelliJ IDEA)
+├── 📁 Moviles/                # Código fuente de la aplicación móvil
+│   └── 📁 ProyectoMoviles/      # Proyecto Android (Kotlin)
+├── 📄 .gitignore              # Archivos ignorados por Git
+├── 📄 LICENSE                 # Licencia del proyecto
+└── 📄 README.md               # Documentación principal (este archivo)
